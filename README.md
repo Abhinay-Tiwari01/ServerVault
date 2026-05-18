@@ -65,13 +65,11 @@ This project demonstrates **user authentication, form handling, and REST‑style
 
 2. Configure the database in `src/main/resources/application.properties` (example for MySQL):
    ```properties
-   spring.datasource.url=jdbc:mysql://localhost:3306/servervault
+   spring.datasource.url=jdbc:sqlserver://localhost:3306/servervault
    spring.datasource.username=your_db_username
    spring.datasource.password=your_db_password
    spring.jpa.hibernate.ddl-auto=update
    ```
-
-   Adjust dialect and settings for H2 or PostgreSQL if needed.
 
 3. Build the project:
    ```bash
