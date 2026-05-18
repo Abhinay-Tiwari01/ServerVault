@@ -1,0 +1,272 @@
+/* ============================================================
+   formStyle.css — matches auth.html dark palette
+   Slide-down entrance animation
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Syne:wght@400;600;700;800&display=swap');
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg:          #0a0a0f;
+  --surface:     #111118;
+  --card:        #16161f;
+  --card2:       #1c1c28;
+  --border:      rgba(255,255,255,0.07);
+  --accent:      #00b5e2;
+  --accent2:     #7c6fff;
+  --accent-glow: rgba(0,181,226,0.15);
+  --text:        #f0f0f8;
+  --muted:       #6b6b80;
+  --muted2:      #9090a8;
+  --danger:      #ff4d6a;
+  --success:     #00d68f;
+  --input-bg:    #0e0e16;
+  --required:    #ff4d6a;
+}
+
+html, body {
+  min-height: 100%;
+  background: var(--bg);
+  font-family: 'Space Grotesk', sans-serif;
+  color: var(--text);
+}
+
+body::before {
+  content: '';
+  position: fixed; inset: 0;
+  background-image:
+    linear-gradient(rgba(0,181,226,0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0,181,226,0.025) 1px, transparent 1px);
+  background-size: 40px 40px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.orb {
+  position: fixed;
+  border-radius: 50%;
+  filter: blur(100px);
+  pointer-events: none;
+  z-index: 0;
+}
+.orb-1 {
+  width: 420px; height: 420px;
+  background: radial-gradient(circle, rgba(0,181,226,0.08) 0%, transparent 70%);
+  top: -100px; left: -80px;
+}
+.orb-2 {
+  width: 360px; height: 360px;
+  background: radial-gradient(circle, rgba(124,111,255,0.07) 0%, transparent 70%);
+  bottom: -80px; right: -60px;
+}
+
+/* ── Form shell — slide down ── */
+.form-shell {
+  position: relative;
+  z-index: 1;
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 32px 24px 48px;
+  animation: slideDown 0.6s cubic-bezier(0.34, 1.4, 0.64, 1) both;
+}
+@keyframes slideDown {
+  from { opacity: 0; transform: translateY(-50px) scale(0.98); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+/* ── Header ── */
+.form-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 28px;
+}
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.brand-mark {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+}
+.brand-dot {
+  width: 30px; height: 30px;
+  border-radius: 7px;
+  background: linear-gradient(135deg, var(--accent), var(--accent2));
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'Syne', sans-serif;
+  font-size: 14px; font-weight: 700; color: #fff;
+}
+.brand-name {
+  font-family: 'Syne', sans-serif;
+  font-size: 16px; font-weight: 700;
+  background: linear-gradient(90deg, var(--accent), var(--accent2));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.header-divider {
+  width: 1px; height: 24px;
+  background: var(--border);
+}
+.form-title {
+  font-family: 'Syne', sans-serif;
+  font-size: 18px; font-weight: 700;
+  color: var(--text);
+}
+
+.btn-back {
+  padding: 7px 14px;
+  border-radius: 8px;
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--muted2);
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 13px; font-weight: 500;
+  text-decoration: none;
+  transition: all 0.2s;
+}
+.btn-back:hover { color: var(--text); border-color: rgba(255,255,255,0.15); }
+
+/* ── Card ── */
+.form-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  padding: 36px 40px 40px;
+  box-shadow:
+    0 0 0 1px rgba(255,255,255,0.03),
+    0 40px 100px rgba(0,0,0,0.5);
+  position: relative;
+  overflow: hidden;
+}
+
+.card-accent {
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--accent), var(--accent2));
+}
+
+/* ── Form grid ── */
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px 24px;
+  margin-bottom: 32px;
+}
+.full-width { grid-column: 1 / -1; }
+
+/* ── Field groups ── */
+.field-group {}
+.field-label {
+  display: block;
+  font-size: 11.5px;
+  font-weight: 600;
+  color: var(--muted2);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 7px;
+}
+.required { color: var(--required); }
+
+.field-wrap { position: relative; }
+
+.field-input {
+  width: 100%;
+  background: var(--input-bg);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  color: var(--text);
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 14px;
+  padding: 11px 14px;
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  -webkit-appearance: none;
+}
+.field-input::placeholder { color: var(--muted); }
+.field-input:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px var(--accent-glow);
+}
+.field-input.has-icon { padding-right: 42px; }
+
+/* Date input fix for dark theme */
+.date-input {
+  color-scheme: dark;
+}
+
+/* Eye toggle */
+.eye-toggle {
+  position: absolute;
+  right: 12px; top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  color: var(--muted);
+  font-size: 17px;
+  background: none; border: none; padding: 0;
+  line-height: 1;
+  transition: color 0.2s;
+}
+.eye-toggle:hover { color: var(--text); }
+
+/* ── Buttons ── */
+.btn-row {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 12px;
+}
+
+.btn-form {
+  padding: 11px 24px;
+  border-radius: 10px;
+  border: none;
+  font-family: 'Syne', sans-serif;
+  font-size: 14px; font-weight: 700;
+  cursor: pointer;
+  transition: all 0.15s;
+  position: relative;
+  overflow: hidden;
+}
+.btn-form::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: rgba(255,255,255,0.07);
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+.btn-form:hover::before { opacity: 1; }
+.btn-form:active { transform: scale(0.97); }
+
+.btn-cancel {
+  background: transparent;
+  border: 1px solid var(--border) !important;
+  color: var(--muted2);
+}
+.btn-cancel:hover { color: var(--text); border-color: rgba(255,255,255,0.15) !important; }
+
+.btn-submit {
+  background: linear-gradient(135deg, var(--accent), #0090b8);
+  color: #fff;
+  box-shadow: 0 4px 16px rgba(0,181,226,0.25);
+}
+.btn-submit:hover { box-shadow: 0 6px 24px rgba(0,181,226,0.38); }
+
+.btn-update {
+  background: linear-gradient(135deg, var(--accent2), #5a4fd4);
+  color: #fff;
+  box-shadow: 0 4px 16px rgba(124,111,255,0.25);
+}
+.btn-update:hover { box-shadow: 0 6px 24px rgba(124,111,255,0.38); }
+
+/* ── Responsive ── */
+@media (max-width: 600px) {
+  .form-grid { grid-template-columns: 1fr; }
+  .full-width { grid-column: 1; }
+  .form-card { padding: 24px 20px 28px; }
+  .form-shell { padding: 20px 16px 40px; }
+}

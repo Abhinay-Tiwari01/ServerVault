@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Company List</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Syne:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/CSS/FormCss/menuStyle.css" />
+</head>
+<body>
+
+  <!-- Ambient orbs -->
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+
+  <!-- Page shell with burst animation -->
+  <div class="page-shell" id="pageShell">
+
+    <!-- Navbar -->
+    <nav class="top-nav">
+      <div class="nav-left">
+        <div class="brand-mark">
+          <div class="brand-dot">P</div>
+          <span class="brand-name">PSM ServerVault</span>
+        </div>
+        <span class="page-badge">Company Records</span>
+      </div>
+      <div class="nav-right">
+        <!-- Search bar -->
+        <div class="search-wrap" id="searchWrap">
+          <button class="search-toggle" id="searchToggle" aria-label="Toggle search">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
+            </svg>
+          </button>
+          <div class="search-input-wrap" id="searchInputWrap">
+            <input type="text" class="search-input" id="searchInput"
+              placeholder="Search company, server, user…" autocomplete="off" />
+            <button class="search-close" id="searchClose">✕</button>
+          </div>
+        </div>
+
+        <a href="/FORMS/FormEntry/form.html" class="btn-nav btn-add">
+          + New Entry
+        </a>
+        <button class="btn-nav btn-logout" onclick="logout()">Logout</button>
+      </div>
+    </nav>
+
+    <!-- Bulk action bar -->
+    <div class="bulk-bar" id="bulkBar">
+      <div class="bulk-left">
+        <label class="custom-check">
+          <input type="checkbox" id="selectAll" />
+          <span class="check-box"></span>
+        </label>
+        <span class="bulk-label" id="selectLabel">Select all</span>
+      </div>
+      <button id="bulkDeleteBtn" class="btn-bulk-delete" disabled>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14H6L5 6"/><path d="M10 11v6"/><path d="M14 11v6"/><path d="M9 6V4h6v2"/>
+        </svg>
+        Delete Selected
+      </button>
+    </div>
+
+    <!-- Table -->
+    <main class="table-main">
+      <div class="table-shell">
+        <table class="data-table" id="dataTable">
+          <thead>
+            <tr>
+              <th style="width:44px">
+                <label class="custom-check">
+                  <input class="form-check-input" type="checkbox" id="headerCheck" />
+                  <span class="check-box"></span>
+                </label>
+              </th>
+              <th>Company Name</th>
+              <th>Company Address</th>
+              <th>Payment Year</th>
+              <th>Payment Amount</th>
+              <th>Upload Date</th>
+              <th>Server</th>
+              <th>MComp</th>
+              <th>User</th>
+              <th style="width:130px">Actions</th>
+            </tr>
+          </thead>
+          <tbody id="tableBody"></tbody>
+        </table>
+
+        <!-- Loading -->
+        <div class="table-loading" id="tableLoading">
+          <div class="pulse-dot"></div>
+          <div class="pulse-dot"></div>
+          <div class="pulse-dot"></div>
+        </div>
+
+        <!-- No match -->
+        <div class="no-match" id="noMatch" style="display:none;">
+          No matching records found.
+        </div>
+      </div>
+    </main>
+
+  </div><!-- /page-shell -->
+
+  <script src="/js/auth.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="/JS/FormScript/menuScript.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      checkAuth();
+    });
+  </script>
+</body>
+</html>
