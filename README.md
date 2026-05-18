@@ -38,7 +38,7 @@ This project demonstrates **user authentication, form handling, and REST‑style
   - Spring Web (MVC / REST)
   - Spring Data JPA (or JDBC)
 - **Database**
-  - MySQL / H2 / PostgreSQL (whichever you are using)
+  - MS-SQL
 - **Tooling**
   - IntelliJ IDEA
   - Maven
