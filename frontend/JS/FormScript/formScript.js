@@ -1,6 +1,6 @@
 /* formScript.js — all URLs corrected to /api/server/ */
 // const API_BASE = "http://localhost:8080";
-import {API_BASE} from `../config.js` //IMPORT THE CONFIG FILE 
+import {API_BASE} from `../config.js`; //IMPORT THE CONFIG FILE 
 
 
 /* ── Eye toggle ── */
