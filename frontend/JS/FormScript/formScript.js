@@ -167,5 +167,5 @@ document.getElementById("update-btn").addEventListener("click", async function (
 
 /* ── CANCEL ── */
 document.getElementById("cancel-btn").addEventListener("click", () => {
-    window.location.href = "/FORMS/FormEntry/menu.html";
+    window.location.href = "../../FORMS/FormEntry/menu.html";
 });
