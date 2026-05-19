@@ -1,6 +1,7 @@
 /* menuScript.js — connected to /api/server/ backend, all bugs fixed */
+// const API_BASE = "http://localhost:8080";
+import {API_BASE} from `../config.js` //IMPORT THE CONFIG FILE 
 
-const API_BASE = "http://localhost:8080";
 
 let dataList = [];
 
