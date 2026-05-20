@@ -25,7 +25,7 @@ public LoginResponseDTO login(LoginRequestDTO loginDTO) {
     String password = loginDTO.getPassword();
 
     // Admin check
-    if (userName.equalsIgnoreCase("admin") && password.equals("Admin@123")) {
+    if (userName.equalsIgnoreCase("admin") && password.equals("ServerVault@123")) {
         LoginResponseDTO response = new LoginResponseDTO();
         response.setId(0);
         response.setUserName("Admin");

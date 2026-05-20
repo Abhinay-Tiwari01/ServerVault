@@ -56,7 +56,7 @@ public class ServerDetailsController {
     public String deleteAllCompanyInfo()
     {
         service.deleteAllDetails();
-        return "All users Innfo Deleted SuccessFully";
+        return "All users Info Deleted SuccessFully";
     }
 
 }

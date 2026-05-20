@@ -11,19 +11,7 @@ import org.springframework.security.web.SecurityFilterChain;
 
 @Configuration
 public class PasswordConfig {
-//    @Bean
-//    public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
-//        http
-//                .authorizeHttpRequests(authz -> authz
-//                        .requestMatchers("/api/**").permitAll()
-//                        .anyRequest().authenticated()
-//                )
-//                .formLogin(form -> form.disable())  // Lambda syntax
-//                .httpBasic(basic -> basic.disable())
-//                .csrf(csrf -> csrf.disable());
-//
-//        return http.build();
-//    }
+
     @Bean
     public AuthenticationManager authenticationManager(AuthenticationConfiguration config) throws Exception {
         return config.getAuthenticationManager();  //  Override default
