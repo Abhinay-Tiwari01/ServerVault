@@ -1,5 +1,6 @@
 // const API_BASE = 'http://localhost:8080';
 // import {API_BASE} from `../config.js`; //IMPORT THE CONFIG FILE 
+
 const API_BASE = 'https://servervault-gf7i.onrender.com'  || 'http://localhost:8080'; // fallback if import fails
 
 /* ── Panel switching ── */
