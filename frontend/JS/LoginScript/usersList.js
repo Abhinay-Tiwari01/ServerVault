@@ -1,9 +1,6 @@
 /* usersList.js — original logic fully preserved, UI states added */
 // const API_BASE = 'http://localhost:8080';
-const API_BASE = IS_PRODUCTION 
-  ? 'https://servervault-gf7i.onrender.com' 
-  : 'http://localhost:8080';
-
+const API_BASE = 'https://servervault-gf7i.onrender.com'  || 'http://localhost:8080'; // fallback to local if import fails 
 
 let userList = [];
 
@@ -142,7 +139,7 @@ function renderTable() {
       <td>${user.getEncryptedPassword || '••••••'}</td>
       <td>${user.mobile}</td>
       <td class="actions-column">
-        <a href="/FORMS/LoginPage/forgetPassword.html?userId=${user.userId}" class="btn btn-primary btn-sm me-1">
+        <a href="../../FORMS/LoginPage/forgetPassword.html?userId=${user.userId}" class="btn btn-primary btn-sm me-1">
           Reset PW
         </a>
         <button class="btn btn-danger btn-sm" onclick="deleteUser(${user.userId}, '${user.userName}')">
@@ -182,10 +179,10 @@ function filterUsers() {
       <td>••••••</td>
       <td>${user.mobile}</td>
       <td class="actions-column">
-        <a href="/FORMS/LoginPage/forgetPassword.html?userId=${user.userId}" class="btn btn-primary btn-sm me-1">
+        <a href="../../FORMS/LoginPage/forgetPassword.html?userId=${user.userId}" class="btn btn-primary btn-sm me-1">
           Reset PW
         </a>
-        <a href="/deleteUser/${user.userId}" class="btn btn-danger btn-sm me-1"
+        <a href="../../FORMS/LoginPage/deleteUser/${user.userId}" class="btn btn-danger btn-sm me-1"
            onclick="return confirm('Delete user ${user.userName}?');">
           Delete
         </a>

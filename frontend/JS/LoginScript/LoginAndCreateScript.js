@@ -79,9 +79,9 @@ document.addEventListener('DOMContentLoaded', () => {
           showAlert('loginErrorBox', 'Login successful! Redirecting…', 'success');
           setTimeout(() => {
             if (data.role === 'ADMIN') {
-              window.location.href = '/FORMS/LoginPage/listOfUsers.html';  // ← fix this path
+              window.location.href = '../../FORMS/LoginPage/listOfUsers.html';  // ← fix this path
             } else {
-              window.location.href = '/FORMS/FormEntry/menu.html';
+              window.location.href = '../../FORMS/FormEntry/menu.html';
             }
           }, 1500);
         } else {

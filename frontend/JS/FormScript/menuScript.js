@@ -1,9 +1,6 @@
 /* menuScript.js — connected to /api/server/ backend, all bugs fixed */
 // const API_BASE = "http://localhost:8080";
-const API_BASE = IS_PRODUCTION 
-  ? 'https://servervault-gf7i.onrender.com' 
-  : 'http://localhost:8080';
-
+const API_BASE = 'https://servervault-gf7i.onrender.com'  || 'http://localhost:8080'; // fallback to local if import fails 
 
 let dataList = [];
 
@@ -182,7 +179,7 @@ document.addEventListener("click", async function (e) {
     if (editBtn) {
         const row      = editBtn.closest("tr");
         const serverId = row?.dataset.serverId;  // ← consistent key
-        window.location.href = `/FORMS/FormEntry/form.html?mode=edit&id=${serverId}`;
+        window.location.href = `../../FORMS/FormEntry/form.html?mode=edit&id=${serverId}`;
     }
 
     /* ROW CHECKBOX */

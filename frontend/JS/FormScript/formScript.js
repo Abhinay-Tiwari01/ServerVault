@@ -1,9 +1,6 @@
 /* formScript.js — all URLs corrected to /api/server/ */
 // const API_BASE = "http://localhost:8080";
-const API_BASE = IS_PRODUCTION 
-  ? 'https://servervault-gf7i.onrender.com' 
-  : 'http://localhost:8080';
-
+const API_BASE = 'https://servervault-gf7i.onrender.com'  || 'http://localhost:8080'; // fallback to local if import fails 
 
 /* ── Eye toggle ── */
 (function () {
@@ -119,7 +116,7 @@ document.getElementById("data-form").addEventListener("submit", async function (
             timer: 1200,
             showConfirmButton: false
         });
-        window.location.href = "/FORMS/FormEntry/menu.html";
+        window.location.href = "../../FORMS/FormEntry/menu.html";
 
     } catch (err) {
         Swal.fire({ title: "Error", text: err.message, icon: "error", background: "#16161f", color: "#f0f0f8" });
@@ -157,7 +154,7 @@ document.getElementById("update-btn").addEventListener("click", async function (
             timer: 1200,
             showConfirmButton: false
         });
-        window.location.href = "/FORMS/FormEntry/menu.html";
+        window.location.href = "../../FORMS/FormEntry/menu.html";
 
     } catch (err) {
         Swal.fire({ title: "Error", text: err.message, icon: "error", background: "#16161f", color: "#f0f0f8" });

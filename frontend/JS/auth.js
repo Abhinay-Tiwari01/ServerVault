@@ -2,7 +2,7 @@ function checkAuth(){
     const user = sessionStorage.getItem('user');
     if(!user)
     {
-        window.location.href='/FORMS/LoginPage/LoginAndCreatePage.html';
+        window.location.href='../../FORMS/LoginPage/LoginAndCreatePage.html';
         return null;
     }
     return JSON.parse(user);
@@ -14,7 +14,7 @@ function checkAdmin()
     const role = sessionStorage.getItem('role');
     if(!role || role !== 'ADMIN')
     {
-        window.location.href='/FORMS/LoginPage/LoginAndCreatePage.html';
+        window.location.href='../../FORMS/LoginPage/LoginAndCreatePage.html';
         return false ;
     }
     return true;
@@ -36,7 +36,7 @@ function checkAdmin()
     }).then((result) => {
         if (result.isConfirmed) {
             sessionStorage.clear();
-            window.location.href = '/FORMS/LoginPage/LoginAndCreatePage.html';
+            window.location.href = '../../FORMS/LoginPage/LoginAndCreatePage.html';
         }
     });
  }

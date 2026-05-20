@@ -1,9 +1,6 @@
 /* updatePassword.js — original logic preserved, eye toggle added */
 // const API_BASE = 'http://localhost:8080';
-const API_BASE = IS_PRODUCTION 
-  ? 'https://servervault-gf7i.onrender.com' 
-  : 'http://localhost:8080';
-
+const API_BASE = 'https://servervault-gf7i.onrender.com'  || 'http://localhost:8080'; // fallback to local if import fails 
 /* ── Eye toggle ── */
 (function () {
   const toggle = document.getElementById("toggle-fp-password");
@@ -96,7 +93,7 @@ function updatePassword() {
         showAlert("errorBox", "Password updated successfully!", "success");
         document.getElementById("updateForm").reset();
         setTimeout(() => {
-          window.location.href = "/FORMS/LoginPage/LoginAndCreatePage.html";
+          window.location.href = "../../FORMS/LoginPage/LoginAndCreatePage.html";
         }, 1500);
       } else {
         return response.text().then(msg => {
